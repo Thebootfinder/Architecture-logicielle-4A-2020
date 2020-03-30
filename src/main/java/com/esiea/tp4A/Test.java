@@ -8,7 +8,7 @@ public class Test {
 	public static void main(String[] args) {
 
 		Position position = Position.of(0, 0, Direction.NORTH);
-		NotreMarsRover marsrover = new NotreMarsRover(position);
+		Rover marsrover = new Rover(position);
 		marsrover.move("rbbf");
 		System.out.printf(marsrover.position.getX() +" "+ marsrover.position.getY() +" "+ marsrover.position.getDirection());
 	}
