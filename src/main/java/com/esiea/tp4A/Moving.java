@@ -2,89 +2,57 @@ package com.esiea.tp4A;
 
 import com.esiea.tp4A.domain.*;
 
-public class Moving {
+public class Moving implements Position {
 
-	private Position position;
+	public PositionPoint point;
+    public Direction direction;
 
-	public Moving(char c, Position position) {
-		this.position = position;
-	}
+    public Moving(PositionPoint point, Direction direction) {
+        this.point = point;
+        this.direction = direction;
+    }
 
-	public Position analyse(char command) {
-		switch (command) {
-		case 'f':
-			position = go_forward(position);
-			break;
-		case 'b':
-			position = go_back(position);
-			break;
-		case 'l':
-			position = rotate_left(position);
-			break;
-		case 'r':
-			position = rotate_right(position);
-			break;
-		}
-		return position;
-	}
 
-	public Position go_forward(Position position) {
-		switch (position.getDirection()) {
-		case NORTH:
-			return Position.of(position.getX(), position.getY() + 1, position.getDirection());
-		case SOUTH:
-			return Position.of(position.getX(), position.getY() - 1, position.getDirection());
-		case EAST:
-			return Position.of(position.getX() + 1, position.getY(), position.getDirection());
-		case WEST:
-			return Position.of(position.getX() - 1, position.getY(), position.getDirection());
-		default:
-			return position;
-		}
-	}
+    public Direction rotateLeft() {
+        return direction = direction.rotateLeft();
+    }
 
-	public Position go_back(Position position) {
-		switch (position.getDirection()) {
-		case NORTH:
-			return Position.of(position.getX(), position.getY() - 1, position.getDirection());
-		case SOUTH:
-			return Position.of(position.getX(), position.getY() + 1, position.getDirection());
-		case EAST:
-			return Position.of(position.getX() - 1, position.getY(), position.getDirection());
-		case WEST:
-			return Position.of(position.getX() + 1, position.getY(), position.getDirection());
-		default:
-			return position;
-		}
-	}
+    public Direction rotateRight() {
+        return direction = direction.rotateRight();
+    }
 
-	public Position rotate_right(Position position) {
-		switch (position.getDirection()) {
-		case NORTH:
-			return Position.of(position.getX(), position.getY(), Direction.EAST);
-		case SOUTH:
-			return Position.of(position.getX(), position.getY(), Direction.WEST);
-		case EAST:
-			return Position.of(position.getX(), position.getY(), Direction.SOUTH);
-		case WEST:
-			return Position.of(position.getX(), position.getY(), Direction.NORTH);
-		default:
-			return position;
-		}
-	}
+    public PositionPoint goForward() {
+        switch (direction) {
+            case NORTH: point.Y_forward(); break;
+            case EAST: point.X_forward(); break;
+            case SOUTH: point.Y_back(); break;
+            case WEST: point.X_back(); break;
+        }
+        return point;
+    }
 
-	public Position rotate_left(Position position) {
-		switch (position.getDirection()) {
-		case NORTH:
-			return Position.of(position.getX(), position.getY(), Direction.WEST);
-		case SOUTH:
-			return Position.of(position.getX(), position.getY(), Direction.EAST);
-		case EAST:
-			return Position.of(position.getX(), position.getY(), Direction.NORTH);
-		case WEST:
-			return Position.of(position.getX(), position.getY(), Direction.SOUTH);
-		default:
-			return position;
-		}
-	}
+    public PositionPoint goBackward() {
+        switch(direction) {
+            case NORTH: point.Y_back(); break;
+            case EAST: point.X_back(); break;
+            case SOUTH: point.Y_forward(); break;
+            case WEST: point.X_forward(); break;
+        }
+        return point;
+    }
+
+    @Override
+    public int getX() {
+        return point.X;
+    }
+
+    @Override
+    public int getY() {
+        return point.Y;
+    }
+
+    @Override
+    public Direction getDirection() {
+        return direction;
+    }
 }
