@@ -1,8 +1,8 @@
 package com.esiea.tp4A;
 
 public class PositionPoint {
-	public int X;
-    public int Y;
+	private int X;
+    private int Y;
 
     public PositionPoint(int X, int Y){
         this.X = X;
