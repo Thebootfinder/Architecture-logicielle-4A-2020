@@ -4,7 +4,7 @@ import com.esiea.tp4A.domain.*;
 
 public class Rover implements MarsRover {
 	
-	public final Moving moving;
+	private final Moving moving;
 
     public Rover(Moving moving) {
         this.moving = moving;

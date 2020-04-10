@@ -4,8 +4,8 @@ import com.esiea.tp4A.domain.*;
 
 public class Moving implements Position {
 
-	public PositionPoint point;
-    public Direction direction;
+	private PositionPoint point;
+    private Direction direction;
 
     public Moving(PositionPoint point, Direction direction) {
         this.point = point;
