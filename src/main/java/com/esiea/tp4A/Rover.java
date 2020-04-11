@@ -27,4 +27,8 @@ public class Rover implements MarsRover {
             default: System.out.println("Not a valid command. Please try again"); break;
         }
     }
+
+    public Moving getPosition() {
+        return moving;
+    }
 }
