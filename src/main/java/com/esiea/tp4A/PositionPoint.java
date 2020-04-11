@@ -1,7 +1,5 @@
 package com.esiea.tp4A;
 
-import com.esiea.tp4A.domain.MarsRover;
-
 public class PositionPoint {
     private int X;
     private int Y;
@@ -13,27 +11,24 @@ public class PositionPoint {
         //  this.map = mars;
     }
 
-    public PositionPoint() {
-        X = 0;
-        Y = 0;
-    }
-
-
     public int getX_Forward() {
-      X = X + 1;
+        return X = X + 1;
     }
 
     public int getY_Forward() {
-         Y = Y + 1;
+        return Y = Y + 1;
     }
 
     public int getX_Back() {
-         X = X - 1;
+        return X = X - 1;
     }
 
     public int getY_Back() {
-         Y = Y - 1;
+        return Y = Y - 1;
     }
-
+    
+    public int getY() { return Y; }
+    
+    public int getX() { return X; }
 
 }

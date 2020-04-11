@@ -4,14 +4,16 @@ import com.esiea.tp4A.domain.*;
 
 public class Rover implements MarsRover {
 	
-	 final Moving moving;
+    final Moving moving;
+    
 
     public Rover(Moving moving) {
         this.moving = moving;
     }
 
-    public Moving move(char[] commands){
-        for (char command : commands) {
+    @Override
+    public Moving move(String commands){
+        for (char command : commands.toCharArray()) {
             executeCommand(command);
         }
         return moving;

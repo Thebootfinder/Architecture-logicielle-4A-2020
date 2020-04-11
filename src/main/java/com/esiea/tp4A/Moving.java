@@ -31,15 +31,24 @@ public class Moving implements Position {
         return point;
     }
 
+    public PositionPoint goBackward() {
+        switch (direction) {
+            case NORTH: point.getY_Back(); break;
+            case EAST: point.getX_Back(); break;
+            case SOUTH: point.getY_Forward(); break;
+            case WEST: point.getX_Forward(); break;
+        }
+        return point;
+    }
 
     @Override
     public int getX() {
-        return point.X;
+        return point.getX();
     }
 
     @Override
     public int getY() {
-        return point.Y;
+        return point.getY();
     }
 
     @Override
