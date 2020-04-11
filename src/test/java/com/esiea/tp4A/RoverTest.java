@@ -16,8 +16,8 @@ public class RoverTest {
     @CsvSource(value= {
         "0,0,NORTH,frfl,1,1,NORTH"
     })
-    void is_rover_moving_properly(int X, int Y, Direction direction, String commands, int X_expected, int Y_expected, Direction direction_expected) {
-        Moving position = init(X,Y,direction);
+    void is_rover_moving_properly(int X, int Y, Direction direction, String commands, int X_expected, int Y_expected, Direction direction_expected, Mars mars) {
+        Moving position = init(X,Y,direction, mars);
         Rover rover = new Rover(position);
         rover.move(commands);
         assertThat(rover.getPosition().getX()).isEqualTo(X_expected);
@@ -25,8 +25,8 @@ public class RoverTest {
         assertThat(rover.getPosition().getDirection()).isEqualTo(direction_expected);
     }
 
-    private Moving init(int X, int Y, Direction direction) {
-        PositionPoint point = new PositionPoint(X, Y);
+    private Moving init(int X, int Y, Direction direction, Mars mars) {
+        PositionPoint point = new PositionPoint(X, Y, mars);
         return new Moving(point, direction);
     }
 }

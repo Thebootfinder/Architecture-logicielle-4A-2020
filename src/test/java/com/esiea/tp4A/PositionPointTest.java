@@ -14,8 +14,8 @@ public class PositionPointTest {
     @CsvSource(value = {
         "0,0,1"
     })
-    void is_X_incremented_correctly(int X, int Y, int X_expected) {
-        PositionPoint point = new PositionPoint(X, Y);
+    void is_X_incremented_correctly(int X, int Y, int X_expected, Mars mars) {
+        PositionPoint point = new PositionPoint(X, Y, mars);
         assertThat(point.getX_Forward()).isEqualTo(X_expected);
     }
 
@@ -23,8 +23,8 @@ public class PositionPointTest {
     @CsvSource(value = {
         "0,0,1"
     })
-    void is_Y_incremented_correctly(int X, int Y, int Y_expected) {
-        PositionPoint point = new PositionPoint(X, Y);
+    void is_Y_incremented_correctly(int X, int Y, int Y_expected, Mars mars) {
+        PositionPoint point = new PositionPoint(X, Y, mars);
         assertThat(point.getY_Forward()).isEqualTo(Y_expected);
     }
 
@@ -32,8 +32,8 @@ public class PositionPointTest {
     @CsvSource(value = {
         "1,0,0"
     })
-    void is_X_decremented_correctly(int X, int Y, int X_expected) {
-        PositionPoint point = new PositionPoint(X, Y);
+    void is_X_decremented_correctly(int X, int Y, int X_expected, Mars mars) {
+        PositionPoint point = new PositionPoint(X, Y, mars);
         assertThat(point.getX_Back()).isEqualTo(X_expected);
     }
 
@@ -41,8 +41,8 @@ public class PositionPointTest {
     @CsvSource(value = {
         "0,1,0"
     })
-    void is_Y_decremented_correctly(int X, int Y, int Y_expected) {
-        PositionPoint point = new PositionPoint(X, Y);
+    void is_Y_decremented_correctly(int X, int Y, int Y_expected, Mars mars) {
+        PositionPoint point = new PositionPoint(X, Y, mars);
         assertThat(point.getY_Back()).isEqualTo(Y_expected);
     }
 
@@ -50,8 +50,8 @@ public class PositionPointTest {
     @CsvSource(value = {
         "0,0,0"
     })
-    void is_X_well_recovered(int X, int Y, int X_expected) {
-        PositionPoint point = new PositionPoint(X, Y);
+    void is_X_well_recovered(int X, int Y, int X_expected, Mars mars) {
+        PositionPoint point = new PositionPoint(X, Y, mars);
         assertThat(point.getX()).isEqualTo(X_expected);
     }
 
@@ -59,8 +59,8 @@ public class PositionPointTest {
     @CsvSource(value = {
         "0,0,0"
     })
-    void is_Y_well_recovered(int X, int Y, int Y_expected) {
-        PositionPoint point = new PositionPoint(X, Y);
+    void is_Y_well_recovered(int X, int Y, int Y_expected, Mars mars) {
+        PositionPoint point = new PositionPoint(X, Y, mars);
         assertThat(point.getY()).isEqualTo(Y_expected);
     }
 }
