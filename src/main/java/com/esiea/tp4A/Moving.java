@@ -23,23 +23,14 @@ public class Moving implements Position {
 
     public PositionPoint goForward() {
         switch (direction) {
-            case NORTH: point.Y_forward(); break;
-            case EAST: point.X_forward(); break;
-            case SOUTH: point.Y_back(); break;
-            case WEST: point.X_back(); break;
+            case NORTH: point.getY_Forward(); break;
+            case EAST: point.getX_Forward(); break;
+            case SOUTH: point.getY_Back(); break;
+            case WEST: point.getX_Back(); break;
         }
         return point;
     }
 
-    public PositionPoint goBackward() {
-        switch(direction) {
-            case NORTH: point.Y_back(); break;
-            case EAST: point.X_back(); break;
-            case SOUTH: point.Y_forward(); break;
-            case WEST: point.X_forward(); break;
-        }
-        return point;
-    }
 
     @Override
     public int getX() {
