@@ -3,19 +3,14 @@ package com.esiea.tp4A;
 import com.esiea.tp4A.domain.MarsRover;
 
 public class PositionPoint {
+
     private int X;
     private int Y;
 
     public PositionPoint(int X, int Y /* , Mettre mars */) {
-
         this.X = X;
         this.Y = Y;
         //  this.map = mars;
-    }
-
-    public PositionPoint() {
-        X = 0;
-        Y = 0;
     }
 
 
