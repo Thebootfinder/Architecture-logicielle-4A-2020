@@ -1,6 +1,7 @@
 package com.esiea.tp4A;
 
 public class PositionPoint {
+
     private int X;
     private int Y;
 

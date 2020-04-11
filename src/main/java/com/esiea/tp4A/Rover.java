@@ -3,9 +3,8 @@ package com.esiea.tp4A;
 import com.esiea.tp4A.domain.*;
 
 public class Rover implements MarsRover {
-	
+
     final Moving moving;
-    
 
     public Rover(Moving moving) {
         this.moving = moving;
