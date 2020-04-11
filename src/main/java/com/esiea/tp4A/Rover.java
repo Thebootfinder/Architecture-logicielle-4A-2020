@@ -4,14 +4,16 @@ import com.esiea.tp4A.domain.*;
 
 public class Rover implements MarsRover {
 	
-	final Moving moving;
+    private Moving moving;
+    private Mars mars;
 
-    public Rover(Moving moving) {
+    public Rover(Moving moving, Mars mars) {
         this.moving = moving;
+        this.mars = mars;
     }
 
     @Override
-    public Moving move(String commands){
+    public Position move(String commands){
         for (char command : commands.toCharArray()) {
             executeCommand(command);
         }
@@ -28,7 +30,7 @@ public class Rover implements MarsRover {
         }
     }
 
-    public Moving getPosition() {
-        return moving;
-    }
+    public Moving getPosition() { return moving; }
+
+    public Mars getMars() { return mars; }
 }
