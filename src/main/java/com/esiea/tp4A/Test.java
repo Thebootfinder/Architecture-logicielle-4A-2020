@@ -1,7 +1,6 @@
 package com.esiea.tp4A;
 
 import com.esiea.tp4A.domain.Direction;
-import com.esiea.tp4A.domain.Position;
 
 public class Test {
 
@@ -11,7 +10,7 @@ public class Test {
 		
 		Moving moving = new Moving(position, Direction.NORTH); 
 		Rover marsrover = new Rover(moving);
-		marsrover.move("rbbf");
+		marsrover.move("ffrfrf");
 		System.out.printf(marsrover.moving.getX() +" "+ marsrover.moving.getY() +" "+ marsrover.moving.getDirection());
 	}
 

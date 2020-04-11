@@ -4,14 +4,15 @@ import com.esiea.tp4A.domain.*;
 
 public class Rover implements MarsRover {
 	
-	private final Moving moving;
+	final Moving moving;
 
     public Rover(Moving moving) {
         this.moving = moving;
     }
 
-    public Moving move(char[] commands){
-        for (char command : commands) {
+    @Override
+    public Moving move(String commands){
+        for (char command : commands.toCharArray()) {
             executeCommand(command);
         }
         return moving;
@@ -23,6 +24,7 @@ public class Rover implements MarsRover {
             case 'r': moving.rotateRight(); break;
             case 'f': moving.goForward(); break;
             case 'b': moving.goBackward(); break;
+            default: System.out.println("Not a valid command. Please try again"); break;
         }
     }
 }
