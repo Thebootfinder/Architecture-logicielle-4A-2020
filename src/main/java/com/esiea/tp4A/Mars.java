@@ -21,21 +21,24 @@ public class Mars implements PlanetMap {
     
     @Override
     public Set<Position> obstaclePositions() {
-        return null;
+        return obstacles;
     }
 
     public void geneObstacles(int numberofObstacle){
-        Init init = new Init();
-        PositionPoint point;
+        
         if (numberofObstacle >= 0) {
-            while(obstacles.size() <= numberofObstacle){
+            
+            while(obstacles.size() < numberofObstacle){
                 do {
+                    Init init = new Init();
+                    PositionPoint point;
                     point = new PositionPoint(init.getRint(Coord.getMaxX(), Coord.getMinX()), init.getRint(Coord.getMaxY(), Coord.getMinY()),this);
                     Position obstacle = new Position.FixedPosition(point.getX(),point.getY(), Direction.NORTH);
                     this.check = obstacles.add(obstacle);
                 } while(!check);
             }
-        }
+        } else System.out.println("Invalid Number of Obstacle");
+
     }
 
     public void destroyObstacle(int x, int y) {
