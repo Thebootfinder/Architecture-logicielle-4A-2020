@@ -3,7 +3,6 @@ package com.esiea.tp4A;
 import com.esiea.tp4A.domain.Direction;
 import static com.esiea.tp4A.domain.Direction.*;
 
-
 public class Laser {
     private final Mars mars;
     private int range;
@@ -31,7 +30,8 @@ public class Laser {
         PositionPoint point = new PositionPoint(pos.getX(), pos.getY(), mars);
         for(int i = 0; i < this.range; i++) {
             if(!(point.checkNextPositionY(NORTH))) {
-                this.mars.destroyObstacle(point.getX(), point.getY_Forward());
+                this.mars.destroyObstacle(point.getX(), point.getY());
+                i += this.range;
             }
         }
     }
@@ -40,7 +40,8 @@ public class Laser {
         PositionPoint point = new PositionPoint(pos.getX(), pos.getY(), mars);
         for(int i = 0; i < this.range; i++) {
             if(!(point.checkNextPositionY(SOUTH))) {
-                this.mars.destroyObstacle(point.getX(), point.getY_Back());
+                this.mars.destroyObstacle(point.getX(), point.getY());
+                i += this.range;
             }
         }
     }
@@ -49,7 +50,8 @@ public class Laser {
         PositionPoint point = new PositionPoint(pos.getX(), pos.getY(), mars);
         for(int i = 0; i < this.range; i++) {
             if(!(point.checkNextPositionX(EAST))) {
-                this.mars.destroyObstacle(point.getX_Forward(), point.getY());
+                this.mars.destroyObstacle(point.getX(), point.getY());
+                i += this.range;
             }
         }
     }
@@ -58,7 +60,8 @@ public class Laser {
         PositionPoint point = new PositionPoint(pos.getX(), pos.getY(), mars);
         for(int i = 0; i < this.range; i++) {
             if(!(point.checkNextPositionX(WEST))) {
-                this.mars.destroyObstacle(point.getX_Back(), point.getY());
+                this.mars.destroyObstacle(point.getX(), point.getY());
+                i += this.range;
             }
         }
     }

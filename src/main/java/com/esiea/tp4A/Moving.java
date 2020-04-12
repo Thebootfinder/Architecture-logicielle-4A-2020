@@ -23,20 +23,20 @@ public class Moving implements Position {
 
     public PositionPoint goForward() {
         switch (direction) {
-            case NORTH: point.getY_Forward(); break;
-            case EAST: point.getX_Forward(); break;
-            case SOUTH: point.getY_Back(); break;
-            case WEST: point.getX_Back(); break;
+            case NORTH: point.getY_Forward(false); break;
+            case EAST: point.getX_Forward(false); break;
+            case SOUTH: point.getY_Back(false); break;
+            case WEST: point.getX_Back(false); break;
         }
         return point;
     }
 
     public PositionPoint goBackward() {
         switch (direction) {
-            case NORTH: point.getY_Back(); break;
-            case EAST: point.getX_Back(); break;
-            case SOUTH: point.getY_Forward(); break;
-            case WEST: point.getX_Forward(); break;
+            case NORTH: point.getY_Back(false); break;
+            case EAST: point.getX_Back(false); break;
+            case SOUTH: point.getY_Forward(false); break;
+            case WEST: point.getX_Forward(false); break;
         }
         return point;
     }
