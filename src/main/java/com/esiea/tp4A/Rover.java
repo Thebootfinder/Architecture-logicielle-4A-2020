@@ -16,7 +16,7 @@ public class Rover implements MarsRover {
     }
 
     @Override
-    public Moving move(String commands){
+    public Position move(String commands){
         for (char command : commands.toCharArray()) {
             executeCommand(command);
         }
@@ -34,7 +34,7 @@ public class Rover implements MarsRover {
         }
     }
 
-    public Moving getPosition() {
-        return moving;
-    }
+    public Moving getPosition() { return moving; }
+
+    public Mars getMars() { return mars; }
 }

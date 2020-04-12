@@ -15,7 +15,8 @@ public class MovingTest {
         "0,0,NORTH,WEST",
         "0,0,WEST,SOUTH",
         "0,0,SOUTH,EAST",
-        "0,0,EAST,NORTH"
+        "0,0,EAST,NORTH",
+
     })
     void does_rover_rotate_left(int X, int Y, Direction direction, Direction direction_expected) {
         Moving position = init(X,Y,direction, mars);
@@ -34,13 +35,18 @@ public class MovingTest {
         assertThat(position.rotateRight()).isEqualTo(direction_expected);
     }
 
-
     @ParameterizedTest
     @CsvSource(value = {
+    
         "0,0,NORTH,0,1",
         "0,0,EAST,1,0",
         "0,0,SOUTH,0,-1",
         "0,0,WEST,-1,0",
+        "0,50,NORTH,0,-49",
+        "50,0,EAST,-49,0",
+        "0,-49,SOUTH,0,50",
+        "-49,0,WEST,50,0"
+        
     })
     void does_rover_move_forward(int X, int Y, Direction direction, int X_expected, int Y_expected) {
         Moving position = init(X,Y,direction, mars);
@@ -49,13 +55,16 @@ public class MovingTest {
         assertThat(position.getY()).isEqualTo(Y_expected);
     }
 
-
     @ParameterizedTest
     @CsvSource(value = {
         "0,0,NORTH,0,-1",
         "0,0,EAST,-1,0",
         "0,0,SOUTH,0,1",
-        "0,0,WEST,1,0"
+        "0,0,WEST,1,0",
+        "0,-49,NORTH,0,50",
+        "-49,0,EAST,50,0",
+        "0,50,SOUTH,0,-49",
+        "50,0,WEST,-49,0"
     })
     void does_rover_move_back(int X, int Y, Direction direction, int X_expected, int Y_expected) {
         Moving position = init(X,Y,direction, mars);
