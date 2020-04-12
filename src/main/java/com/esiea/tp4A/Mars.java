@@ -16,28 +16,30 @@ public class Mars implements PlanetMap {
     private boolean check;
 
     public Mars(int SizeMap) {
-        Coord = new Map(SizeMap/2, (((SizeMap/2) - 1)*-1), SizeMap/2, (((SizeMap/2) - 1)*-1));
+        Coord = new Map(SizeMap / 2, (((SizeMap / 2) - 1) * -1), SizeMap / 2, (((SizeMap / 2) - 1) * -1));
     }
-    
+
     @Override
     public Set<Position> obstaclePositions() {
         return obstacles;
     }
 
-    public void geneObstacles(int numberofObstacle){
-        
+    public void geneObstacles(int numberofObstacle) {
+
         if (numberofObstacle >= 0) {
-            
-            while(obstacles.size() < numberofObstacle){
+
+            while (obstacles.size() < numberofObstacle) {
                 do {
                     Init init = new Init();
                     PositionPoint point;
-                    point = new PositionPoint(init.getRint(Coord.getMaxX(), Coord.getMinX()), init.getRint(Coord.getMaxY(), Coord.getMinY()),this);
-                    Position obstacle = new Position.FixedPosition(point.getX(),point.getY(), Direction.NORTH);
+                    point = new PositionPoint(init.getRint(Coord.getMaxX(), Coord.getMinX()),
+                            init.getRint(Coord.getMaxY(), Coord.getMinY()), this);
+                    Position obstacle = new Position.FixedPosition(point.getX(), point.getY(), Direction.NORTH);
                     this.check = obstacles.add(obstacle);
-                } while(!check);
+                } while (!check);
             }
-        } else System.out.println("Invalid Number of Obstacle");
+        } else
+            System.out.println("Invalid Number of Obstacle");
 
     }
 
@@ -47,9 +49,8 @@ public class Mars implements PlanetMap {
     }
 
     public boolean IsObstacleThere(int x, int y) {
-        return Stream.concat(roverss.stream().map(Rover::getPosition),
-            obstacles.stream())
-            .anyMatch(p -> p.getX() == x && p.getY() == y);
+        return Stream.concat(roverss.stream().map(Rover::getPosition), obstacles.stream())
+                .anyMatch(p -> p.getX() == x && p.getY() == y);
     }
 
     public Map getCoordinates() {
@@ -64,5 +65,4 @@ public class Mars implements PlanetMap {
         return roverss.add(rover);
     }
 
-        
 }
