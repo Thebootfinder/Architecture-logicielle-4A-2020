@@ -2,7 +2,7 @@ package com.esiea.tp4A;
 
 import java.util.HashSet;
 import java.util.Set;
-
+import java.util.stream.Stream;
 
 import com.esiea.tp4A.domain.Direction;
 import com.esiea.tp4A.domain.PlanetMap;
