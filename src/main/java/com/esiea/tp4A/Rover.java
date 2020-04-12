@@ -17,10 +17,14 @@ public class Rover implements MarsRover {
 
     @Override
     public Position move(String commands){
-        for (char command : commands.toCharArray()) {
-            executeCommand(command);
+        if(!commands.isEmpty()) {
+            for (char command : commands.toCharArray()) {
+                executeCommand(command);
+            }
+            return moving;
+        } else {
+            return Position.of(0, 0, Direction.NORTH);
         }
-        return moving;
     }
 
     private void executeCommand(char command) {

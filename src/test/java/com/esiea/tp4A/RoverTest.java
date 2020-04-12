@@ -18,7 +18,8 @@ public class RoverTest {
         "0,0,NORTH,aff,0,2,NORTH",
         "0,0,NORTH,f f,0,2,NORTH",
         "0,0,NORTH,f\"f,0,2,NORTH",
-        "20,49,WEST,ffrfflbrf,19,-48,NORTH"
+        "20,49,WEST,ffrfflbrf,19,-48,NORTH",
+        "0,0,NORTH,,0,0,NORTH"
     })
     void is_rover_moving_properly(int X, int Y, Direction direction, String commands, int X_expected, int Y_expected, Direction direction_expected) {
         Moving position = init(X,Y,direction, mars);
