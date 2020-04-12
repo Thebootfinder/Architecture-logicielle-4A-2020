@@ -47,12 +47,11 @@ public class PositionPoint {
     public int getX() { return X; }
 
     public boolean checkNextPositionX(Direction direction) {
-        int nextPosX = X;
+        int nextPosX;
         switch(direction) {
             case EAST: nextPosX = getX_Forward(true); break;
             case WEST: nextPosX = getX_Back(true); break;
-            default:
-                break;
+            default: nextPosX = X; break;
         }
         if(!(mars.IsObstacleThere(nextPosX, Y))) {
             X = nextPosX;
@@ -62,12 +61,11 @@ public class PositionPoint {
     }
 
     public boolean checkNextPositionY(Direction direction) {
-        int nextPosY = Y;
+        int nextPosY;
         switch(direction) {
             case NORTH: nextPosY = getY_Forward(true); break;
             case SOUTH: nextPosY = getY_Back(true); break;
-            default:
-                break;
+            default: nextPosY = Y; break;
         }
         if(!(mars.IsObstacleThere(X, nextPosY))) {
             Y = nextPosY;
