@@ -3,24 +3,17 @@ package com.esiea.tp4A;
 import com.esiea.tp4A.domain.*;
 
 public class Rover implements MarsRover {
-	
-<<<<<<< HEAD
+
 	final Moving moving;
 	final private Mars mars;
 	final private Laser laser;
-=======
-    private Moving moving;
-    private Mars mars;
->>>>>>> master
+
 
     public Rover(Moving moving, Mars mars) {
         this.moving = moving;
         this.mars = mars;
-<<<<<<< HEAD
         this.laser = new Laser(mars,1);
         /* default range = 1, une fonction doit pouvoir la modifier */
-=======
->>>>>>> master
     }
 
     @Override
