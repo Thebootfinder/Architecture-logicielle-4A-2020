@@ -6,12 +6,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 public class RoverTest {
-    /* 
-        TODO : 
-    
-        faire différents tests dans csvsource
-        prendre en compte que quand on est à 50 et qu'on avance, on sera à -50 quand ce sera implémenté
-    */
+
     @ParameterizedTest
     @CsvSource(value= {
         "0,0,NORTH,frfl,1,1,NORTH"

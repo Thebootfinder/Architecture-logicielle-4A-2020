@@ -30,12 +30,7 @@ public class MovingTest {
         assertThat(position.rotateRight()).isEqualTo(direction_expected);
     }
 
-    /* 
-        TODO : 
-    
-        faire différents tests dans csvsource
-        prendre en compte que quand on est à 50 et qu'on avance, on sera à -50 quand ce sera implémenté
-    */
+
     @ParameterizedTest
     @CsvSource(value = {
         "0,0,NORTH,0,1",
@@ -50,12 +45,7 @@ public class MovingTest {
         assertThat(position.getY()).isEqualTo(Y_expected);
     }
 
-    /* 
-        TODO : 
-    
-        faire différents tests dans csvsource
-        prendre en compte que quand on est à 50 et qu'on avance, on sera à -50 quand ce sera implémenté
-    */
+
     @ParameterizedTest
     @CsvSource(value = {
         "0,0,NORTH,0,-1",

@@ -3,7 +3,7 @@ package com.esiea.tp4A;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.stream.Stream;
+
 
 import com.esiea.tp4A.domain.Direction;
 import com.esiea.tp4A.domain.PlanetMap;
@@ -14,6 +14,7 @@ public class Mars implements PlanetMap {
     private Map Coord;
     private Set<Position> obstacles = new HashSet<>();
     private Set<Rover> roverss = new HashSet<>();
+    private boolean check;
 
     public Mars(int SizeMap) {
         Coord = new Map(SizeMap/2, (((SizeMap/2) - 1)*-1), SizeMap/2, (((SizeMap/2) - 1)*-1));
@@ -21,33 +22,21 @@ public class Mars implements PlanetMap {
     
     @Override
     public Set<Position> obstaclePositions() {
-        // TODO Auto-generated method stub
         return null;
     }
 
-    public void geneObstacles(int numb){
-        if (numb >= 0) {
-            while(obstacles.size() !=numb){
-                Position obstacle = CreationRandomObstacle();
-                obstacles.add(obstacle);
-            }
-        }
-    }
-
-    private Position CreationRandomObstacle(){
+    public void geneObstacles(int numberofObstacle){
         Init init = new Init();
         PositionPoint point;
-        do {
-            point = new PositionPoint(init.getRint(Coord.getMaxX(), Coord.getMinX()),
-                init.getRint(Coord.getMaxY(), Coord.getMinY()),this);
-        } while(checkObstacle(point.getX(), point.getY()));
-        return new Position.FixedPosition(point.getX(),point.getY(), Direction.NORTH);
-    }
-
-    public boolean checkObstacle(int x, int y) {
-        return Stream.concat(roverss.stream().map(Rover::getPosition),
-            obstacles.stream())
-            .anyMatch(p -> p.getX() == x && p.getY() == y);
+        if (numberofObstacle >= 0) {
+            while(obstacles.size() <= numberofObstacle){
+                do {
+                    point = new PositionPoint(init.getRint(Coord.getMaxX(), Coord.getMinX()), init.getRint(Coord.getMaxY(), Coord.getMinY()),this);
+                    Position obstacle = new Position.FixedPosition(point.getX(),point.getY(), Direction.NORTH);
+                    this.check = obstacles.add(obstacle);
+                } while(!check);
+            }
+        }
     }
 
     public void destroyObstacle(int x, int y) {
