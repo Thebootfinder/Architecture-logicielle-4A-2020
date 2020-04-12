@@ -3,7 +3,7 @@ package com.esiea.tp4A;
 import com.esiea.tp4A.domain.*;
 
 public class Rover implements MarsRover {
-	
+
 	final Moving moving;
 	final private Mars mars;
 	final private Laser laser;
@@ -16,7 +16,7 @@ public class Rover implements MarsRover {
     }
 
     @Override
-    public Moving move(String commands){
+    public Position move(String commands){
         for (char command : commands.toCharArray()) {
             executeCommand(command);
         }
@@ -34,7 +34,7 @@ public class Rover implements MarsRover {
         }
     }
 
-    public Moving getPosition() {
-        return moving;
-    }
+    public Moving getPosition() { return moving; }
+
+    public Mars getMars() { return mars; }
 }
