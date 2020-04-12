@@ -8,4 +8,6 @@ public class Init {
         Random rand = new Random();
         return rand.nextInt(max - min + 1) + min;
     }
+
+    
 }
