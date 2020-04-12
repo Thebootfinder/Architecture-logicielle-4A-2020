@@ -3,7 +3,7 @@ package com.esiea.tp4A;
 import com.esiea.tp4A.domain.*;
 
 public class Rover implements MarsRover {
-	
+
 	final Moving moving;
 	final private Mars mars;
 	final private Laser laser;
