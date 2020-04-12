@@ -10,6 +10,7 @@ import com.esiea.tp4A.domain.Position;
 public class ObstacleTest {
 
     public final Mars mars = new Mars(100);
+    
 
     @ParameterizedTest
     @CsvSource({
@@ -25,13 +26,25 @@ public class ObstacleTest {
 
     @ParameterizedTest
     @CsvSource({
+        
         "1,1,1,1,true",
         "3,2,1,3,false",
-        "0,0,0,0,true"
     })
     void is_obstacle_in_given_position(int xObs,int yObs,int XTest,int YTest,boolean ObstacleThere){
         mars.obstaclePositions().add(new Position.FixedPosition(xObs,yObs, Direction.NORTH));
         assertThat(mars.IsObstacleThere(XTest, YTest)).isEqualTo(ObstacleThere);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+        "0,0",
+        "16,5"
+    })
+
+    void is_obstacle_destroy(int xObs, int yObs) {
+        mars.obstaclePositions().add(new Position.FixedPosition(xObs,yObs, Direction.NORTH));
+        mars.destroyObstacle(xObs, yObs);
+        assertThat(mars.IsObstacleThere(xObs, xObs)).isEqualTo(false);
     }
 
 }
