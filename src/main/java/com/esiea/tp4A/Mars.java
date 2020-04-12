@@ -65,4 +65,8 @@ public class Mars implements PlanetMap {
         return roverss.add(rover);
     }
 
+    public Set<Rover> getRov() {
+        return roverss;
+    }
+
 }
