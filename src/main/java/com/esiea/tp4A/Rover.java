@@ -8,12 +8,11 @@ public class Rover implements MarsRover {
 	final private Mars mars;
 	final private Laser laser;
 
-
     public Rover(Moving moving, Mars mars) {
         this.moving = moving;
         this.mars = mars;
-        this.laser = new Laser(mars,1);
-        /* default range = 1, une fonction doit pouvoir la modifier */
+        this.laser = new Laser(mars,10);
+        /* default range = 10, une fonction doit pouvoir la modifier */
     }
 
     @Override
