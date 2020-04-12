@@ -14,29 +14,29 @@ public class PositionPoint {
         this.mars = mars;
     }
 
-    public int getX_Forward() {
-        if(!mars.IsObstacleThere(X + 1, Y)) {
+    public int getX_Forward(boolean laser) { // Le laser a un comportement différent du Rover: d'où le boolean pour savoir si c'est l'un ou l'autre
+        if(!mars.IsObstacleThere(X + 1, Y) || laser) {
         X = (X + 1) > mars.getCoordinates().getMaxX() ? mars.getCoordinates().getMinX() : X + 1;
         }
         return X;
     }
 
-    public int getY_Forward() {
-        if(!mars.IsObstacleThere(X, Y + 1)) {
+    public int getY_Forward(boolean laser) {
+        if(!mars.IsObstacleThere(X, Y + 1) || laser) {
         Y = (Y + 1) > mars.getCoordinates().getMaxY() ? mars.getCoordinates().getMinY() : Y + 1;
         }
         return Y;
     }
 
-    public int getX_Back() {
-        if(!mars.IsObstacleThere(X - 1, Y)) {
+    public int getX_Back(boolean laser) {
+        if(!mars.IsObstacleThere(X - 1, Y) || laser) {
         X = (X - 1) < mars.getCoordinates().getMinX() ? mars.getCoordinates().getMaxX() : X - 1;
         }
         return X;
     }
 
-    public int getY_Back() {
-        if(!mars.IsObstacleThere(X, Y - 1)) {
+    public int getY_Back(boolean laser) {
+        if(!mars.IsObstacleThere(X, Y - 1) || laser) {
         Y = (Y - 1) < mars.getCoordinates().getMinY() ? mars.getCoordinates().getMaxY() : Y - 1;
         }
         return Y;
@@ -49,8 +49,8 @@ public class PositionPoint {
     public boolean checkNextPositionX(Direction direction) {
         int nextPosX = X;
         switch(direction) {
-            case EAST: nextPosX = (X + 1) > mars.getCoordinates().getMaxX() ? mars.getCoordinates().getMinX() : X + 1; break;
-            case WEST: nextPosX = (X - 1) < mars.getCoordinates().getMinX() ? mars.getCoordinates().getMaxX() : X - 1; break;
+            case EAST: nextPosX = getX_Forward(true); break;
+            case WEST: nextPosX = getX_Back(true); break;
             default:
                 break;
         }
@@ -64,8 +64,8 @@ public class PositionPoint {
     public boolean checkNextPositionY(Direction direction) {
         int nextPosY = Y;
         switch(direction) {
-            case NORTH: nextPosY = (Y + 1) > mars.getCoordinates().getMaxY() ? mars.getCoordinates().getMinY() : Y + 1; break;
-            case SOUTH: nextPosY = Y = (Y - 1) < mars.getCoordinates().getMinY() ? mars.getCoordinates().getMaxY() : Y - 1; break;
+            case NORTH: nextPosY = getY_Forward(true); break;
+            case SOUTH: nextPosY = getY_Back(true); break;
             default:
                 break;
         }

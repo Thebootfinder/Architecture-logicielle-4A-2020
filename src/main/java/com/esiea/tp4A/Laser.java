@@ -30,7 +30,7 @@ public class Laser {
         PositionPoint point = new PositionPoint(pos.getX(), pos.getY(), mars);
         for(int i = 0; i < this.range; i++) {
             if(!(point.checkNextPositionY(NORTH))) {
-                this.mars.destroyObstacle(point.getX(), point.getY_Forward());
+                this.mars.destroyObstacle(point.getX(), point.getY_Forward(true));
                 i += this.range;
             }
         }
@@ -40,7 +40,7 @@ public class Laser {
         PositionPoint point = new PositionPoint(pos.getX(), pos.getY(), mars);
         for(int i = 0; i < this.range; i++) {
             if(!(point.checkNextPositionY(SOUTH))) {
-                this.mars.destroyObstacle(point.getX(), point.getY_Back());
+                this.mars.destroyObstacle(point.getX(), point.getY_Back(true));
                 i += this.range;
             }
         }
@@ -50,7 +50,7 @@ public class Laser {
         PositionPoint point = new PositionPoint(pos.getX(), pos.getY(), mars);
         for(int i = 0; i < this.range; i++) {
             if(!(point.checkNextPositionX(EAST))) {
-                this.mars.destroyObstacle(point.getX_Forward(), point.getY());
+                this.mars.destroyObstacle(point.getX_Forward(true), point.getY());
                 i += this.range;
             }
         }
@@ -60,7 +60,7 @@ public class Laser {
         PositionPoint point = new PositionPoint(pos.getX(), pos.getY(), mars);
         for(int i = 0; i < this.range; i++) {
             if(!(point.checkNextPositionX(WEST))) {
-                this.mars.destroyObstacle(point.getX_Back(), point.getY());
+                this.mars.destroyObstacle(point.getX_Back(true), point.getY());
                 i += this.range;
             }
         }
