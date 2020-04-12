@@ -12,7 +12,6 @@ public class Moving implements Position {
         this.direction = direction;
     }
 
-
     public Direction rotateLeft() {
         return direction = direction.rotateLeft();
     }

@@ -1,9 +1,7 @@
 package com.esiea.tp4A;
-
 import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Stream;
-
 import com.esiea.tp4A.domain.Direction;
 import com.esiea.tp4A.domain.PlanetMap;
 import com.esiea.tp4A.domain.Position;
@@ -19,15 +17,8 @@ public class Mars implements PlanetMap {
         Coord = new Map(SizeMap / 2, (((SizeMap / 2) - 1) * -1), SizeMap / 2, (((SizeMap / 2) - 1) * -1));
     }
 
-    @Override
-    public Set<Position> obstaclePositions() {
-        return obstacles;
-    }
-
     public void geneObstacles(int numberofObstacle) {
-
         if (numberofObstacle >= 0) {
-
             while (obstacles.size() < numberofObstacle) {
                 do {
                     Init init = new Init();
@@ -38,9 +29,7 @@ public class Mars implements PlanetMap {
                     this.check = obstacles.add(obstacle);
                 } while (!check);
             }
-        } else
-            System.out.println("Invalid Number of Obstacle");
-
+        } else { System.out.println("Invalid Number of Obstacle");}
     }
 
     public void destroyObstacle(int x, int y) {
@@ -53,20 +42,10 @@ public class Mars implements PlanetMap {
                 .anyMatch(p -> p.getX() == x && p.getY() == y);
     }
 
-    public Map getCoordinates() {
-        return Coord;
-    }
-
-    public void setObstacles(Set<Position> obstacles) {
-        this.obstacles = obstacles;
-    }
-
-    public boolean addRov(Rover rover) {
-        return roverss.add(rover);
-    }
-
-    public Set<Rover> getRov() {
-        return roverss;
-    }
-
+    @Override
+    public Set<Position> obstaclePositions() { return obstacles; }
+    public Map getCoordinates() { return Coord; }
+    public void setObstacles(Set<Position> obstacles) { this.obstacles = obstacles; }
+    public boolean addRov(Rover rover) { return roverss.add(rover); }
+    public Set<Rover> getRov() { return roverss; }
 }

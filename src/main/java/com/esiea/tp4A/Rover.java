@@ -4,7 +4,7 @@ import com.esiea.tp4A.domain.*;
 
 public class Rover implements MarsRover {
 
-	final Moving moving;
+	private Moving moving;
 	final private Mars mars;
 	final private Laser laser;
 
@@ -41,4 +41,16 @@ public class Rover implements MarsRover {
     public Moving getPosition() { return moving; }
 
     public Mars getMars() { return mars; }
+
+    @Override
+    public MarsRover initialize(Position position) {
+        PositionPoint point = new PositionPoint(position.getX(), position.getY(), mars);
+        moving = new Moving(point, Direction.NORTH);
+        return this;
+    }
+    @Override
+    public MarsRover configureLaserRange(int range) {
+        laser.setRange(range);
+        return this;
+    }
 }
