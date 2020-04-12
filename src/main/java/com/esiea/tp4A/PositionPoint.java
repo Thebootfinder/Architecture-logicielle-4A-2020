@@ -51,6 +51,8 @@ public class PositionPoint {
         switch(direction) {
             case EAST: nextPosX = getX_Forward(); break;
             case WEST: nextPosX = getX_Back(); break;
+            default:
+                break;
         }
         if(!(mars.IsObstacleThere(nextPosX, Y))) {
             X = nextPosX;
@@ -64,6 +66,8 @@ public class PositionPoint {
         switch(direction) {
             case NORTH: nextPosY = getY_Forward(); break;
             case SOUTH: nextPosY = getY_Back(); break;
+            default:
+                break;
         }
         if(!(mars.IsObstacleThere(X, nextPosY))) {
             Y = nextPosY;
