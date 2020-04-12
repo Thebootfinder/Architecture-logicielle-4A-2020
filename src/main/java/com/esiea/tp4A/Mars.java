@@ -1,9 +1,8 @@
 package com.esiea.tp4A;
 
-
 import java.util.HashSet;
 import java.util.Set;
-
+import java.util.stream.Stream;
 
 import com.esiea.tp4A.domain.Direction;
 import com.esiea.tp4A.domain.PlanetMap;
@@ -44,7 +43,11 @@ public class Mars implements PlanetMap {
         roverss.removeIf(rover -> rover.getPosition().getX() == x && rover.getPosition().getY() == y);
     }
 
-
+    public boolean IsObstacleThere(int x, int y) {
+        return Stream.concat(roverss.stream().map(Rover::getPosition),
+            obstacles.stream())
+            .anyMatch(p -> p.getX() == x && p.getY() == y);
+    }
 
     public Map getCoordinates() {
         return Coord;
