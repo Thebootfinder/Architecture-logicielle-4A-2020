@@ -10,7 +10,15 @@ public class RoverTest {
     public final Mars mars = new Mars(100);
     @ParameterizedTest
     @CsvSource(value= {
-        "0,0,NORTH,ff,0,2,NORTH"
+        "0,0,NORTH,b,0,-1,NORTH",
+        "0,0,NORTH,fflb,1,2,WEST",
+        "0,0,NORTH,lbblffr,2,-2,WEST",
+        "5,-3,WEST,ff,3,-3,WEST",
+        "5,-3,WEST,lbblffr,7,-1,SOUTH",
+        "0,0,NORTH,aff,0,2,NORTH",
+        "0,0,NORTH,f f,0,2,NORTH",
+        "0,0,NORTH,f\"f,0,2,NORTH",
+        "20,49,WEST,ffrfflbrf,19,-48,NORTH"
     })
     void is_rover_moving_properly(int X, int Y, Direction direction, String commands, int X_expected, int Y_expected, Direction direction_expected) {
         Moving position = init(X,Y,direction, mars);
