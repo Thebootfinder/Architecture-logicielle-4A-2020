@@ -3,7 +3,6 @@ package com.esiea.tp4A;
 import com.esiea.tp4A.domain.Direction;
 import static com.esiea.tp4A.domain.Direction.*;
 
-import static com.esiea.tp4A.domain.Direction.*;
 
 public class Laser {
     private final Mars mars;
