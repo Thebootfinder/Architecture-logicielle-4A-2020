@@ -28,6 +28,9 @@ public class Moving implements Position {
             case SOUTH: point.getY_Back(); break;
             case WEST: point.getX_Back(); break;
         }
+        System.out.println(getX());
+        System.out.println(getY());
+
         return point;
     }
 
