@@ -1,13 +1,14 @@
 package com.esiea.tp4A;
 
 
+import com.esiea.tp4A.domain.Direction;
+
 public class PositionPoint {
 	private int X;
     private int Y;
     private final Mars mars;
 
     public PositionPoint(int X, int Y, Mars mars) {
-
         this.X = X;
         this.Y = Y;
         this.mars = mars;
@@ -44,4 +45,30 @@ public class PositionPoint {
     public int getY() { return Y; }
     
     public int getX() { return X; }
+
+    public boolean checkNextPositionX(Direction direction) {
+        int nextPosX = X;
+        switch(direction) {
+            case EAST: nextPosX = getX_Forward(); break;
+            case WEST: nextPosX = getX_Back(); break;
+        }
+        if(!(mars.IsObstacleThere(nextPosX, Y))) {
+            X = nextPosX;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean checkNextPositionY(Direction direction) {
+        int nextPosY = Y;
+        switch(direction) {
+            case NORTH: nextPosY = getY_Forward(); break;
+            case SOUTH: nextPosY = getY_Back(); break;
+        }
+        if(!(mars.IsObstacleThere(X, nextPosY))) {
+            Y = nextPosY;
+            return true;
+        }
+        return false;
+    }
 }
