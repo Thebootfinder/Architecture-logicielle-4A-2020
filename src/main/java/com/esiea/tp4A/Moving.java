@@ -44,12 +44,10 @@ public class Moving implements Position {
     public int getX() {
         return point.getX();
     }
-
     @Override
     public int getY() {
         return point.getY();
     }
-
     @Override
     public Direction getDirection() {
         return direction;

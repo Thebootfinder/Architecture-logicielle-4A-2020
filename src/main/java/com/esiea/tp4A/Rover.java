@@ -12,7 +12,6 @@ public class Rover implements MarsRover {
         this.moving = moving;
         this.mars = mars;
         this.laser = new Laser(mars,10);
-        /* default range = 10, une fonction doit pouvoir la modifier */
     }
 
     @Override
@@ -39,7 +38,6 @@ public class Rover implements MarsRover {
     }
 
     public Moving getPosition() { return moving; }
-
     public Mars getMars() { return mars; }
 
     @Override

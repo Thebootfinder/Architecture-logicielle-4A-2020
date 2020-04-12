@@ -30,6 +30,16 @@ public class RoverTest {
         assertThat(rover.getPosition().getDirection()).isEqualTo(direction_expected);
     }
 
+    @ParameterizedTest
+    @CsvSource(value = {
+        "0,0,NORTH"
+    })
+    void is_mars_well_returned(int X, int Y, Direction direction) {
+        Moving position = init(X, Y, direction, mars);
+        Rover rover = new Rover(position, mars);
+        assertThat(rover.getMars()).isEqualTo(mars);
+    }
+
     private Moving init(int X, int Y, Direction direction, Mars mars) {
         PositionPoint point = new PositionPoint(X, Y, mars);
         return new Moving(point, direction);
